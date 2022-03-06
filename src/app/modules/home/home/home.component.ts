@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ParserService } from '../../../services/parser.service';
-import { fromEvent, mapTo, Subscription, switchMap, tap, timer } from 'rxjs';
+import {catchError, EMPTY, fromEvent, mapTo, Subscription, switchMap, tap, timer} from 'rxjs';
 import { topSliderSelectors } from './selectors';
 import { getResourceTypeByElement } from '../../../helpers/parser.helper';
 import { ResourceItem } from '../../../interfaces/resource-item.interface';
@@ -44,7 +44,10 @@ export class HomeComponent implements OnInit {
         )
       }),
       tap((res) => this.loading = false),
-      tap((dom) => this.parseTopList(dom as HTMLHtmlElement))
+      tap((dom) => this.parseTopList(dom as HTMLHtmlElement)),
+      catchError((err) => {
+        return EMPTY;
+      })
     ).subscribe();
   }
 
