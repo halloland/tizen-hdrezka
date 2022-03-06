@@ -7,18 +7,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FocusableDirective } from './directives/focusable.directive';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HomeComponent } from './modules/home/home/home.component';
+import { DetailComponent } from './modules/home/detail/detail.component';
+import { ChooserComponent } from './modules/home/detail/chooser/chooser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FocusableDirective
+    FocusableDirective,
+    HomeComponent,
+    DetailComponent,
+    ChooserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
