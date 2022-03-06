@@ -1,0 +1,35 @@
+<div class="home-container" #container>
+  <div class="top-slider">
+    <div class="top-slider-loading" *ngIf="loading">
+      <ngx-skeleton-loader
+        count="5"
+        [theme]="{
+      'border-radius': '5px',
+      height: '100px',
+      width: '50px',
+      'background-color': '#992929',
+      border: '1px solid white'
+    }"
+      ></ngx-skeleton-loader>
+    </div>
+    <div class="top-slider-items">
+      <div #sliderItem class="top-slider-item" *ngFor="let item of list"
+      [class.focus-active]="item.active">
+        <div class="item-image">
+          <img [src]="item.image" />
+          <div class="item-type">
+
+          </div>
+        </div>
+        <div class="item-description">
+          <div class="item-title">
+            {{item.title}}
+          </div>
+          <div class="item-info">
+            {{item.info}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

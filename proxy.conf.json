@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://rezka.ag/",
+    "secure": false
+  }
+}

@@ -1,0 +1,25 @@
+:host {
+  color: white;
+
+  .detail-container {
+    display: flex;
+    padding: 15px;
+
+    .header-title {
+      margin-right: 20px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .watch-button {
+      button {
+        font-size: 22px;
+        width: 100%;
+        padding: 10px;
+      }
+    }
+  }
+}

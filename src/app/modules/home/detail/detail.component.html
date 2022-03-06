@@ -1,0 +1,25 @@
+<div class="detail-container">
+  <div class="header-title">
+    <div class="title">
+      {{item?.title}}
+    </div>
+    <div class="original-title">
+      {{item?.originalTitle}}
+    </div>
+
+    <div class="item-image">
+      <img [src]="item?.image" />
+    </div>
+
+    <div class="watch-button">
+      <button>
+        Смотреть
+      </button>
+    </div>
+  </div>
+
+  <div class="item-description">
+    <div class="item-info" [innerHTML]="item?.info">
+    </div>
+  </div>
+</div>
