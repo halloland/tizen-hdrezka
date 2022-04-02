@@ -12,6 +12,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HomeComponent } from './modules/home/home/home.component';
 import { DetailComponent } from './modules/home/detail/detail.component';
 import { ChooserComponent } from './modules/home/detail/chooser/chooser.component';
+import { PlayerComponent } from './modules/home/player/player.component';
+import { StoreModule } from '@ngrx/store';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,8 @@ import { ChooserComponent } from './modules/home/detail/chooser/chooser.componen
     FocusableDirective,
     HomeComponent,
     DetailComponent,
-    ChooserComponent
+    ChooserComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,11 @@ import { ChooserComponent } from './modules/home/detail/chooser/chooser.componen
     HttpClientModule,
     NgxSkeletonLoaderModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot({}, {}),
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+<div id="player" style="height: 100%; width: 100%">
+</div>
+<div class="loader" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<!--
+-->
+<div class="controls" *ngIf="!controlsHidden">
+  <div class="video-settings">
+    <div class="button">
+      Quality
+      <mat-icon aria-hidden="false" aria-label="Example home icon">videocam</mat-icon>
+
+      <div class="quality-list" *ngIf="qualities?.length">
+        <div class="quality-item" *ngFor="let quality of qualities"
+        [class.active]="quality.name === activeQuality"
+        [class.focus]="quality.focusActive">
+          {{quality.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="time">
+    {{time}} / {{duration}}
+  </div>
+  <mat-progress-bar mode="determinate" [value]="percentage"></mat-progress-bar>
+</div>

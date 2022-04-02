@@ -1,6 +1,24 @@
 :host{
+  height: 100%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  .chooser-container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
   ul
   {
+
+    height: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+
     list-style: none;
     padding: 0;
     margin: 0;
@@ -9,5 +27,14 @@
   li {
     font-size: 24px;
     padding: 20px;
+
+    &.active {
+      border: 1px solid #313131;
+    }
+
+    &.focus-active {
+      background: rgb(49, 49, 49);
+      color: white;
+    }
   }
 }

@@ -1,5 +1,26 @@
-<ul>
-  <li *ngFor="let translator of translations">
-    {{translator.name}}
-  </li>
-</ul>
+<div class="chooser-container">
+  <ul>
+    <li *ngFor="let translator of translations"
+        [class.active]="translator.active"
+        [class.focus-active]="translator.focusActive && activeTab === translations">
+      {{translator.name}}
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="let season of seasons"
+        [class.active]="season.active"
+        [class.focus-active]="season.focusActive && activeTab === seasons">
+      {{season.name}}
+    </li>
+  </ul>
+  <ul #episodeContainer>
+    <ng-container *ngFor="let episode of episodes">
+      <li
+        #episode
+        [class.focus-active]="episode.focusActive && activeTab === episodes"
+        [class.active]="episode.active">
+        {{episode.name}}
+      </li>
+    </ng-container>
+  </ul>
+</div>

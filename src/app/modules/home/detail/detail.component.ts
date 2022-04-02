@@ -20,6 +20,8 @@ export class DetailComponent implements OnInit {
   eventsSubscription: Subscription;
   // @ts-ignore
   page: HTMLElement
+  // @ts-ignore
+  id: number;
 
   constructor(private router: Router,
               private activeRouter: ActivatedRoute,
@@ -31,12 +33,15 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.activeRouter.queryParams
       .subscribe(params => {
-        console.log(params); // { order: "popular" }
         this.init(params['url']);
       })
   }
 
   private init(url: string): void {
+    const idMatch = url.match(/\/([\d]+).*$/);
+    if (idMatch) {
+      this.id = Number(idMatch[1]);
+    }
     this.parserService.parse('https://rezka.ag' + url).pipe(
       tap((res) => {
         this.initItem(res as HTMLElement)
@@ -64,8 +69,11 @@ export class DetailComponent implements OnInit {
         if (event.keyCode === KEY_EVENTS.enter) {
           const dialogRef = this.dialog.open(ChooserComponent, {
             data: {
-              page: this.page
-            }
+              page: this.page,
+              id: this.id
+            },
+            height: 'inherit',
+            //maxHeight: '100%'
           });
           this.eventsSubscription.unsubscribe();
           dialogRef.afterClosed().subscribe(result => {
